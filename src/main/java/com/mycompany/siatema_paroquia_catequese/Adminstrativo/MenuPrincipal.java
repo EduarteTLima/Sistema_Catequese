@@ -4,9 +4,9 @@
  */
 package com.mycompany.siatema_paroquia_catequese.Adminstrativo;
 
-import com.mycompany.Arquivos_Sistemas_Brutos.banco_de_dados_catequeseMySql;
 import com.mycompany.Arquivos_Sistemas_Brutos.Formularios;
-import com.mycompany.Telas.Catequese.CadCatequese;
+import com.mycompany.Arquivos_Sistemas_Brutos.banco_de_dados_catequeseMySql;
+import com.mycompany.Telas.Catequisando.CadCatequisando;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import javax.swing.JOptionPane;
 
@@ -42,23 +42,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        MiCatequisando = new javax.swing.JMenu();
+        miCatequese = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Cadastros");
+        MiCatequisando.setText("Cadastros");
 
-        jMenuItem1.setText("Catequese");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        miCatequese.setText("Catequisando");
+        miCatequese.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                miCatequeseActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        MiCatequisando.add(miCatequese);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(MiCatequisando);
 
         jMenu2.setText("Consultas");
         jMenuBar1.add(jMenu2);
@@ -79,12 +79,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        if (Formularios.cadCatequese == null)
-            Formularios.cadCatequese = new CadCatequese();
+    private void miCatequeseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCatequeseActionPerformed
+        if (Formularios.cadCatequisando == null)
+            Formularios.cadCatequisando = new CadCatequisando();
         
-        Formularios.cadCatequese.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        Formularios.cadCatequisando.setVisible(true);
+    }//GEN-LAST:event_miCatequeseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,9 +122,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu MiCatequisando;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem miCatequese;
     // End of variables declaration//GEN-END:variables
 }

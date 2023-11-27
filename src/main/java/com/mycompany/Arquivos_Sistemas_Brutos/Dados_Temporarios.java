@@ -4,16 +4,15 @@
  */
 package com.mycompany.Arquivos_Sistemas_Brutos;
 
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-
 /**
  *
  * @author eduardo.3946
  */
-public class Formularios {
+public class Dados_Temporarios {
+    public static Object tempObject;
+    public static Object tempObject2;
+    public static Object tempObject3;
     
-   //Catequisando
-    public static JFrame cadCatequisando;
-    public static JFrame listCatequisando;
+    public static int idUsuarioLogado;
+    public static String usuarioLogado;
 }
