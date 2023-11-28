@@ -6,6 +6,7 @@ package com.mycompany.Telas.Catequisando;
 
 import com.mycompany.Arquivos_Sistemas_Brutos.Dados_Temporarios;
 import com.mycompany.Dao.DaoCatequisando;
+import com.mycompany.Dao.DaoMatricula;
 import com.mycompany.Mod.ModCatequisando;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
@@ -229,13 +230,13 @@ public class ListCatequisando extends javax.swing.JFrame {
 
         tableCatequese.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "ID_ENDERECO", "ID_MATRICULA", "NOME_DA_CRIANC", "DESCRICAO"
             }
         ));
         tableCatequese.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -309,19 +310,29 @@ public class ListCatequisando extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void tableCatequeseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCatequeseMouseClicked
-        if (evt.getClickCount() == 2){
-            ModCatequisando modCatequisando = new ModCatequisando();
+        try{
+            if (evt.getClickCount() == 2){
+                ModCatequisando modCatequisando = new ModCatequisando();
 
-            modCatequisando.setId(Integer.parseInt(String.valueOf(tableCatequese.getValueAt(tableCatequese.getSelectedRow(), 0))));
-            modCatequisando.setId_matricula(Integer.parseInt(String.valueOf(tableCatequese.getValueAt(tableCatequese.getSelectedRow(), 0))));
-            modCatequisando.setNome(String.valueOf(tableCatequese.getValueAt(tableCatequese.getSelectedRow(), 1)));
-            modCatequisando.setId_endereco(Integer.parseInt(String.valueOf(tableCatequese.getValueAt(tableCatequese.getSelectedRow(), 2))));
-            modCatequisando.setDescricao(String.valueOf(tableCatequese.getValueAt(tableCatequese.getSelectedRow(), 3)));
+                modCatequisando.setId(Integer.parseInt(String.valueOf(tableCatequese.getValueAt(tableCatequese.getSelectedRow(), 0))));
+                modCatequisando.setNome(String.valueOf(tableCatequese.getValueAt(tableCatequese.getSelectedRow(), 2)));
+                modCatequisando.setId_endereco(Integer.parseInt(String.valueOf(tableCatequese.getValueAt(tableCatequese.getSelectedRow(), 3))));
+                modCatequisando.setDescricao(String.valueOf(tableCatequese.getValueAt(tableCatequese.getSelectedRow(), 4)));
 
-            Dados_Temporarios.tempObject = (ModCatequisando) modCatequisando;
+                DaoMatricula daoMatricula = new DaoMatricula();
+                    ResultSet resultSet = daoMatricula.listarPorId(Integer.parseInt(String.valueOf(tableCatequese.getValueAt(tableCatequese.getSelectedRow(), 1))));
 
-            CadCatequisando cadCatequisando = new CadCatequisando();
-            cadCatequisando.setVisible(true);
+                    int idMatricula = -1;
+
+                    while(resultSet.next())
+                        idMatricula = resultSet.getInt("ID");
+                Dados_Temporarios.tempObject = (ModCatequisando) modCatequisando;
+
+                CadCatequisando cadCatequisando = new CadCatequisando();
+                cadCatequisando.setVisible(true);
+            }
+        }catch(Exception e){
+            
         }
     }//GEN-LAST:event_tableCatequeseMouseClicked
 

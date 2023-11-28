@@ -13,7 +13,32 @@ import javax.swing.JFrame;
  */
 public class Formularios {
     
+   //Catequese
+    public static JFrame cadCatequese;
+    public static JFrame listCatequese;
+    
    //Catequisando
     public static JFrame cadCatequisando;
     public static JFrame listCatequisando;
+    
+    //Catequista
+    public static JFrame cadCatequista;
+    public static JFrame listCatequista;
+    
+   //Endereço
+    public static JFrame cadEndereco;
+    public static JFrame listEndereco;
+    
+   
+   //Matricula
+    public static JFrame cadMatricula;
+    public static JFrame listMatricula;
+    
+   //Turma
+    public static JFrame cadTurma;
+    public static JFrame listTurma;
+    
+   //Volume
+    public static JFrame cadVolume;
+    public static JFrame listVolume;
 }

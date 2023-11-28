@@ -7,6 +7,7 @@ package com.mycompany.siatema_paroquia_catequese.Adminstrativo;
 import com.mycompany.Arquivos_Sistemas_Brutos.Formularios;
 import com.mycompany.Arquivos_Sistemas_Brutos.banco_de_dados_catequeseMySql;
 import com.mycompany.Telas.Catequisando.CadCatequisando;
+import com.mycompany.Telas.Endereco.CadEndereco;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import javax.swing.JOptionPane;
 
@@ -44,6 +45,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         MiCatequisando = new javax.swing.JMenu();
         miCatequese = new javax.swing.JMenuItem();
+        miEndereco = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,6 +59,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         MiCatequisando.add(miCatequese);
+
+        miEndereco.setText("Endereco");
+        miEndereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miEnderecoActionPerformed(evt);
+            }
+        });
+        MiCatequisando.add(miEndereco);
 
         jMenuBar1.add(MiCatequisando);
 
@@ -85,6 +95,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         Formularios.cadCatequisando.setVisible(true);
     }//GEN-LAST:event_miCatequeseActionPerformed
+
+    private void miEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEnderecoActionPerformed
+        if (Formularios.cadEndereco == null)
+            Formularios.cadEndereco = new CadEndereco();
+        
+        Formularios.cadEndereco.setVisible(true);
+    }//GEN-LAST:event_miEnderecoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,5 +143,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem miCatequese;
+    private javax.swing.JMenuItem miEndereco;
     // End of variables declaration//GEN-END:variables
 }

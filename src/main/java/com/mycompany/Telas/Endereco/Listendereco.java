@@ -4,17 +4,189 @@
  */
 package com.mycompany.Telas.Endereco;
 
+import com.mycompany.Arquivos_Sistemas_Brutos.Dados_Temporarios;
+import com.mycompany.Dao.DaoEndereco;
+import com.mycompany.Mod.ModEndereco;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author eduardo.3946
  */
-public class Listendereco extends javax.swing.JFrame {
+public class ListEndereco extends javax.swing.JFrame {
 
     /**
      * Creates new form Listendereco
      */
-    public Listendereco() {
+    public ListEndereco() {
         initComponents();
+        
+        setLocationRelativeTo(null);
+        
+        listarTodos();
+    }
+
+    public void listarTodos(){
+        try{
+            //Pega o model da tabela definido no design
+            DefaultTableModel defaultTableModel = (DefaultTableModel) tableEndereco.getModel();
+            
+            tableEndereco.setModel(defaultTableModel);
+
+            DaoEndereco daoEndereco = new DaoEndereco();
+
+            //Atribui o resultset retornado a uma variável para ser usada.
+            ResultSet resultSet = daoEndereco.listarTodos();
+            
+            defaultTableModel.setRowCount(0);
+            while (resultSet.next()){
+                String id = resultSet.getString(1);
+                String cidade = resultSet.getString(2);
+                String rua = resultSet.getString(3);
+                String cep = resultSet.getString(4);
+                String numeroRes = resultSet.getString(5);
+                
+                defaultTableModel.addRow(new Object[]{id, cidade, rua, cep, numeroRes});
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void listarPorId(int pId){
+        try{
+            //Define o model da tabela.
+            DefaultTableModel defaultTableModel = (DefaultTableModel) tableEndereco.getModel();
+
+            tableEndereco.setModel(defaultTableModel);
+
+            DaoEndereco daoEndereco = new DaoEndereco();
+
+            //Atribui o resultset retornado a uma variável para ser usada.
+            ResultSet resultSet = daoEndereco.listarPorId(pId);
+            
+            defaultTableModel.setRowCount(0);
+            while (resultSet.next()){
+                String id = resultSet.getString(1);
+                String cidade = resultSet.getString(2);
+                String rua = resultSet.getString(3);
+                String cep = resultSet.getString(4);
+                String numeroRes = resultSet.getString(5);
+                
+                defaultTableModel.addRow(new Object[]{id, cidade, rua, cep, numeroRes});
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void listarPorCidade(String pCidade){
+        try{
+            //Define o model da tabela.
+            DefaultTableModel defaultTableModel = (DefaultTableModel) tableEndereco.getModel();
+            
+            tableEndereco.setModel(defaultTableModel);
+
+            DaoEndereco daoEndereco = new DaoEndereco();
+
+            //Atribui o resultset retornado a uma variável para ser usada.
+            ResultSet resultSet = daoEndereco.listarPorCidade(pCidade);
+            
+            defaultTableModel.setRowCount(0);
+            while (resultSet.next()){
+                String id = resultSet.getString(1);
+                String cidade = resultSet.getString(2);
+                String rua = resultSet.getString(3);
+                String cep = resultSet.getString(4);
+                String numeroRes = resultSet.getString(5);
+                
+                defaultTableModel.addRow(new Object[]{id, cidade, rua, cep, numeroRes});
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void listarPorNomeRua(String pNomeRua){
+        try{
+            //Define o model da tabela.
+            DefaultTableModel defaultTableModel = (DefaultTableModel) tableEndereco.getModel();
+            
+            tableEndereco.setModel(defaultTableModel);
+
+            DaoEndereco daoEndereco = new DaoEndereco();
+
+            //Atribui o resultset retornado a uma variável para ser usada.
+            ResultSet resultSet = daoEndereco.listarPorNomeRua(pNomeRua);
+            
+            defaultTableModel.setRowCount(0);
+            while (resultSet.next()){
+                String id = resultSet.getString(1);
+                String cidade = resultSet.getString(2);
+                String rua = resultSet.getString(3);
+                String cep = resultSet.getString(4);
+                String numeroRes = resultSet.getString(5);
+                
+                defaultTableModel.addRow(new Object[]{id, cidade, rua, cep, numeroRes});
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void listarPorCep(String pCep){
+        try{
+            //Define o model da tabela.
+            DefaultTableModel defaultTableModel = (DefaultTableModel) tableEndereco.getModel();
+            
+            tableEndereco.setModel(defaultTableModel);
+
+            DaoEndereco daoEndereco = new DaoEndereco();
+
+            //Atribui o resultset retornado a uma variável para ser usada.
+            ResultSet resultSet = daoEndereco.listarPorCep(pCep);
+            
+            defaultTableModel.setRowCount(0);
+            while (resultSet.next()){
+                String id = resultSet.getString(1);
+                String cidade = resultSet.getString(2);
+                String rua = resultSet.getString(3);
+                String cep = resultSet.getString(4);
+                String numeroRes = resultSet.getString(5);
+                
+                defaultTableModel.addRow(new Object[]{id, cidade, rua, cep, numeroRes});
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void listarPorNumeroResidencia(String pNumeroResidencia){
+        try{
+            //Define o model da tabela.
+            DefaultTableModel defaultTableModel = (DefaultTableModel) tableEndereco.getModel();
+            
+            tableEndereco.setModel(defaultTableModel);
+
+            DaoEndereco daoEndereco = new DaoEndereco();
+
+            //Atribui o resultset retornado a uma variável para ser usada.
+            ResultSet resultSet = daoEndereco.listarPorNumeroResidencia(pNumeroResidencia);
+            
+            defaultTableModel.setRowCount(0);
+            while (resultSet.next()){
+                String id = resultSet.getString(1);
+                String cidade = resultSet.getString(2);
+                String rua = resultSet.getString(3);
+                String cep = resultSet.getString(4);
+                String numeroRes = resultSet.getString(5);
+                
+                defaultTableModel.addRow(new Object[]{id, cidade, rua, cep, numeroRes});
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -26,21 +198,125 @@ public class Listendereco extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jcbTipoFiltro = new javax.swing.JComboBox<>();
+        tfFiltro = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableEndereco = new javax.swing.JTable();
+        btnBuscar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jcbTipoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "ID", "CIDADE", "RUA", "CEP", "NÚMERO RES." }));
+
+        tableEndereco.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "CIDADE", "RUA", "CEP", "NUMERO RES."
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableEndereco.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableEnderecoMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tableEndereco);
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jcbTipoFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbTipoFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                .addGap(35, 35, 35))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tableEnderecoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableEnderecoMouseClicked
+        try{
+            if (evt.getClickCount() == 2){
+                ModEndereco modEndereco = new ModEndereco();
+
+                modEndereco.setId(Integer.parseInt(String.valueOf(tableEndereco.getValueAt(tableEndereco.getSelectedRow(), 0))));
+                modEndereco.setCidade(String.valueOf(tableEndereco.getValueAt(tableEndereco.getSelectedRow(), 1)));
+                modEndereco.setNomeRua(String.valueOf(tableEndereco.getValueAt(tableEndereco.getSelectedRow(), 2)));
+                modEndereco.setCep(String.valueOf(tableEndereco.getValueAt(tableEndereco.getSelectedRow(), 3)));
+                modEndereco.setNumeroResidencia(String.valueOf(tableEndereco.getValueAt(tableEndereco.getSelectedRow(), 4)));
+
+                Dados_Temporarios.tempObject = (ModEndereco) modEndereco;
+
+                CadEndereco cadEndereco = new CadEndereco();
+                cadEndereco.setVisible(true);
+            }
+        }catch(Exception e){
+            System.err.println(e.getMessage());
+        }
+    }//GEN-LAST:event_tableEnderecoMouseClicked
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        switch (jcbTipoFiltro.getSelectedIndex()){
+            case 0:
+            listarTodos();
+            break;
+            case 1:
+            listarPorId(Integer.parseInt(tfFiltro.getText()));
+            break;
+            case 2:
+            listarPorCidade(tfFiltro.getText());
+            break;
+            case 3:
+            listarPorNomeRua(tfFiltro.getText());
+            break;
+            case 4:
+            listarPorCep(tfFiltro.getText());
+            break;
+            case 5:
+            listarPorNumeroResidencia(tfFiltro.getText());
+            break;
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -59,24 +335,30 @@ public class Listendereco extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Listendereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListEndereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Listendereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListEndereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Listendereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListEndereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Listendereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListEndereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Listendereco().setVisible(true);
+                new ListEndereco().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> jcbTipoFiltro;
+    private javax.swing.JTable tableEndereco;
+    private javax.swing.JTextField tfFiltro;
     // End of variables declaration//GEN-END:variables
 }
