@@ -30,28 +30,25 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         entrar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("Sistema de Administração");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(180, 30, 420, 100);
+        jLabel1.setBounds(120, 30, 420, 100);
 
         jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
         jLabel3.setText("Dados e ");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(310, 110, 140, 50);
+        jLabel3.setBounds(230, 120, 140, 50);
 
         jLabel4.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 0, 0));
         jLabel4.setText("Informação da Paróquia ");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(220, 140, 450, 100);
+        jLabel4.setBounds(80, 180, 450, 100);
 
         entrar.setFont(new java.awt.Font("Baskerville Old Face", 1, 36)); // NOI18N
         entrar.setText("Entrar");
@@ -61,19 +58,16 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
         getContentPane().add(entrar);
-        entrar.setBounds(350, 290, 210, 90);
+        entrar.setBounds(180, 290, 210, 90);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/Telas/imagem/pngtree-cross-against-the-sky-religious-catholic-background-photo-image_8688576.jpg"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 610, 430);
-
-        pack();
+        setSize(new java.awt.Dimension(625, 437));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        TelaLogin tela = new TelaLogin();
-       tela.setVisible(true);
-       dispose();
+        TelaAdminstrativo tela = new TelaAdminstrativo();
+        tela.setVisible(true);
+        dispose();
     }//GEN-LAST:event_entrarActionPerformed
 
     /**
@@ -114,7 +108,6 @@ public class TelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton entrar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
